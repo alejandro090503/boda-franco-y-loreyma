@@ -307,7 +307,7 @@ section>*{position:relative;z-index:1}
   border-bottom:1px solid rgba(201,169,110,.1);
   position:relative;overflow:hidden;
 }
-.cd-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:30px}
+.cd-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-top:30px}
 .cd-box{
   text-align:center;padding:18px 6px 14px;
   background:rgba(201,169,110,.05);
@@ -319,6 +319,7 @@ section>*{position:relative;z-index:1}
 .cd-num{
   font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:300;
   color:var(--gold);display:block;line-height:1;will-change:contents;
+  font-variant-numeric:tabular-nums;
 }
 .cd-lbl{font-size:7px;letter-spacing:2px;text-transform:uppercase;color:var(--cream);opacity:.38;display:block;margin-top:5px}
 
@@ -997,7 +998,6 @@ section>*{position:relative;z-index:1}
   <div class="h-particles" id="hPart"></div>
 
   <div class="h-cnt" id="hCnt">
-    <img src="monograma.png" alt="F&amp;L" class="h-mono" id="hMono">
     <div class="h-names" id="hNames">Franco &amp; Loreyma</div>
 
     <div class="gline" style="margin-top:18px" id="hLine"></div>
@@ -1489,17 +1489,15 @@ window.addEventListener('scroll', () => {
 
 /* ── HERO ANIMATIONS ─────────────────────────────────── */
 function heroAnim() {
-  gsap.set(['#hMono','#hNames','#hLine','#hDate','#hScroll'], { opacity: 0 });
-  gsap.set('#hMono', { scale: .55 });
+  gsap.set(['#hNames','#hLine','#hDate','#hScroll'], { opacity: 0 });
   gsap.set('#hNames', { y: 20 });
 
   const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
   tl
-    .to('#hMono',  { opacity: 1, scale: 1, duration: 1.2, ease: 'back.out(1.4)' }, .1)
-    .to('#hNames', { opacity: 1, y: 0, duration: .9 }, .6)
-    .to('#hLine',  { opacity: .7, duration: .6 }, 1.0)
-    .to('#hDate',  { opacity: 1, duration: .7  }, 1.2)
-    .to('#hScroll',{ opacity: 1, duration: .5  }, 1.5);
+    .to('#hNames', { opacity: 1, y: 0, duration: .9 }, .1)
+    .to('#hLine',  { opacity: .7, duration: .6 }, .6)
+    .to('#hDate',  { opacity: 1, duration: .7  }, .9)
+    .to('#hScroll',{ opacity: 1, duration: .5  }, 1.2);
 
   gsap.to('#heroBg', {
     yPercent: 22, ease: 'none',
