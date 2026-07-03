@@ -1611,11 +1611,17 @@ function scrollAnims() {
     scrollTrigger: { trigger: '#location', start: 'top 78%', once: true }
   });
 
-  gsap.from(['#calendar .cal-sub', '#calBtn'], {
-    opacity: 0, y: 24, scale: .95, duration: .8, stagger: .15,
+  gsap.from('#calendar .cal-sub', {
+    opacity: 0, y: 24, scale: .95, duration: .8,
     ease: 'back.out(1.4)',
     scrollTrigger: { trigger: '#calendar', start: 'top 84%', once: true }
   });
+  gsap.fromTo('#calBtn',
+    { autoAlpha: 0, y: 24, scale: .95 },
+    { autoAlpha: 1, y: 0, scale: 1, duration: .8, delay: .15,
+      ease: 'back.out(1.4)',
+      scrollTrigger: { trigger: '#calendar', start: 'top 84%', once: true }
+    });
 
   // Itinerario V3 — glow scrub + gem reveal
   (function(){
