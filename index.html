@@ -807,21 +807,6 @@ section>*{position:relative;z-index:1}
 .envelope-hint::after{content:'';display:block;width:32px;height:1px;background:linear-gradient(90deg,transparent,rgba(212,184,117,.5),transparent);margin:10px auto 0;animation:hintPulse 2.2s ease-in-out infinite}
 @keyframes hintPulse{0%,100%{opacity:.4;width:32px}50%{opacity:1;width:54px}}
 
-/* ── KIDS POLICY ──────────────────────────────────────── */
-#kids-policy{background:var(--cream);position:relative;overflow:hidden}
-.kp-card{
-  background:linear-gradient(165deg,rgba(255,255,255,.45),rgba(255,255,255,.25));
-  border:1px solid rgba(184,151,106,.18);
-  border-radius:14px;padding:clamp(28px,6vw,40px) clamp(20px,5vw,28px) clamp(24px,5vw,32px);margin-top:26px;text-align:center;
-  position:relative;overflow:hidden;
-  box-shadow:0 4px 16px rgba(0,0,0,.06);
-}
-.kp-card::before{content:'';position:absolute;top:0;left:15%;right:15%;height:1px;background:linear-gradient(to right,transparent,var(--gold),transparent)}
-.kp-icons{display:flex;justify-content:center;gap:28px;margin-bottom:22px;color:var(--gold);opacity:.8}
-.kp-icons svg{width:30px;height:30px}
-.kp-msg{font-family:'Cormorant Garamond',serif;font-size:clamp(17px,4.5vw,20px);line-height:1.85;color:var(--text);opacity:.9;font-style:italic;font-weight:500}
-.kp-note{font-size:clamp(10px,2.6vw,12px);letter-spacing:3px;text-transform:uppercase;color:var(--gold-dark);opacity:.8;margin-top:18px;font-weight:700}
-
 /* ── GIFTS ────────────────────────────────────────────── */
 #gifts{background:linear-gradient(175deg,var(--sand),var(--ink3));position:relative;overflow:hidden}
 #gifts::before{
@@ -1121,24 +1106,6 @@ section>*{position:relative;z-index:1}
 </section>
 
 
-<!-- ═══════════════ 6. KIDS POLICY ═══════════════════ -->
-<section id="kids-policy">
-  <span class="lbl">Con todo nuestro cariño</span>
-  <h2 class="ttl">Solo Adultos</h2>
-  <div class="gline"></div>
-  <div class="kp-card">
-    <div class="kp-icons">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h18M5 12v7a1 1 0 001 1h12a1 1 0 001-1v-7M8 12V8a4 4 0 018 0v4"/><line x1="4" y1="4" x2="20" y2="20"/></svg>
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2h8l-1 9a4 4 0 01-6 0L8 2zM12 11v9M8 22h8"/></svg>
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1111.2 3a7 7 0 009.8 9.8z"/></svg>
-    </div>
-    <p class="kp-msg">Queremos que vivas esta noche<br>sin preocupaciones. Con mucho cariño,<br>te pedimos dejar a los pequeños en casa.</p>
-    <p class="kp-note">Una velada de adultos · Gracias por comprender</p>
-  </div>
-</section>
-
-<div class="blend blend-dark-beige"></div>
-
 <!-- ═══════════════ 7. MESA DE REGALOS ═══════════════ -->
 <section id="gifts">
   <span class="lbl">Tu presencia es nuestro mejor regalo</span>
@@ -1239,19 +1206,19 @@ section>*{position:relative;z-index:1}
   <span class="lbl">Vestimenta</span>
   <h2 class="ttl">Código de Vestimenta</h2>
   <div class="gline"></div>
-  <p class="dc-sub"><em style="font-family:'Cormorant Garamond',serif;font-size:17px;font-style:italic">Por confirmar</em></p>
+  <p class="dc-sub"><em style="font-family:'Cormorant Garamond',serif;font-size:17px;font-style:italic">Formal de Playa</em></p>
 
   <div class="dc-figures fu">
     <div class="dc-fig">
-      <img src="caballero.png" alt="Caballero, traje formal" loading="lazy">
+      <img src="caballero.png" alt="Caballero con guayabera" loading="lazy">
       <span class="dc-fig-label">Caballeros</span>
-      <span class="dc-fig-sub">Por confirmar</span>
+      <span class="dc-fig-sub">Guayabera</span>
     </div>
     <div class="dc-sep-line" aria-hidden="true"></div>
     <div class="dc-fig">
-      <img src="dama-vino.png" alt="Dama, vestido formal" loading="lazy">
+      <img src="dama-vino.png" alt="Dama con vestido de playa" loading="lazy">
       <span class="dc-fig-label">Damas</span>
-      <span class="dc-fig-sub">Por confirmar</span>
+      <span class="dc-fig-sub">Vestido de Playa</span>
     </div>
   </div>
 </section>
@@ -1654,11 +1621,6 @@ function scrollAnims() {
   gsap.from('.fam-card', {
     opacity: 0, y: 26, scale: .97, duration: .65, stagger: .09, ease: cine,
     scrollTrigger: { trigger: '#family', start: 'top 78%', once: true }
-  });
-
-  gsap.from('.kp-card', {
-    opacity: 0, y: 30, scale: .96, duration: .9, ease: cine,
-    scrollTrigger: { trigger: '#kids-policy', start: 'top 82%', once: true }
   });
 
   gsap.from('.env-interactive', {
