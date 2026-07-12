@@ -809,40 +809,36 @@ section>*{position:relative;z-index:1}
 #env-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:3;opacity:0;transform:scale(1.18)}
 #env-flash{position:fixed;inset:0;background:#fff;z-index:9999;opacity:0;pointer-events:none}
 .envelope-hint{
-  position:absolute;bottom:clamp(48px,10vh,80px);left:50%;transform:translateX(-50%);
-  font-family:'Cormorant Garamond',serif;font-size:clamp(14px,3.8vw,17px);
-  letter-spacing:4px;text-transform:uppercase;
-  color:#fff;
-  cursor:pointer;white-space:nowrap;z-index:10;
-  text-shadow:0 2px 8px rgba(0,0,0,.5);
-  opacity:0;animation:envFadeIn .9s ease 1.4s forwards;
-  display:flex;flex-direction:column;align-items:center;gap:10px;
+  position:absolute;bottom:clamp(44px,9vh,72px);left:50%;transform:translateX(-50%);
+  opacity:0;animation:envFadeIn .8s ease 1.4s forwards;
+  z-index:10;cursor:pointer;
+  display:flex;flex-direction:column;align-items:center;gap:0;
 }
 .env-btn{
-  display:inline-flex;align-items:center;justify-content:center;gap:8px;
-  padding:14px 36px;
-  border:2px solid var(--gold);
-  border-radius:50px;
-  background:linear-gradient(135deg,rgba(201,168,76,.2),rgba(201,168,76,.08));
-  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
-  color:var(--gold-lt);
-  font-family:'Cormorant Garamond',serif;font-size:clamp(15px,4vw,18px);
-  font-weight:600;letter-spacing:3px;text-transform:uppercase;
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  padding:12px 32px;
+  border:none;border-radius:28px;
+  background:rgba(255,255,255,.12);
+  backdrop-filter:blur(20px) saturate(1.4);-webkit-backdrop-filter:blur(20px) saturate(1.4);
+  color:rgba(255,255,255,.88);
+  font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',sans-serif;
+  font-size:13px;font-weight:500;letter-spacing:.6px;
   cursor:pointer;
-  text-shadow:0 1px 6px rgba(0,0,0,.4);
-  box-shadow:0 0 20px rgba(201,168,76,.25),0 0 60px rgba(201,168,76,.1),inset 0 1px 0 rgba(255,255,255,.15);
-  animation:envBtnPulse 2s ease-in-out infinite;
-  transition:transform .2s ease,box-shadow .2s ease;
+  box-shadow:0 0 0 .5px rgba(255,255,255,.18),0 2px 16px rgba(0,0,0,.25);
+  transition:transform .18s ease,background .18s ease;
+  -webkit-tap-highlight-color:transparent;
 }
-.env-btn:active{transform:scale(.94);box-shadow:0 0 10px rgba(201,168,76,.4)}
-.env-btn svg{width:18px;height:18px;stroke:var(--gold-lt);fill:none;stroke-width:1.8;animation:envBtnArrow 1.5s ease-in-out infinite}
-@keyframes envBtnPulse{
-  0%,100%{box-shadow:0 0 20px rgba(201,168,76,.25),0 0 60px rgba(201,168,76,.1),inset 0 1px 0 rgba(255,255,255,.15)}
-  50%{box-shadow:0 0 30px rgba(201,168,76,.45),0 0 80px rgba(201,168,76,.2),inset 0 1px 0 rgba(255,255,255,.2)}
+.env-btn:active{transform:scale(.95);background:rgba(255,255,255,.18)}
+.env-btn .env-chevron{
+  width:20px;height:20px;
+  border:1.5px solid rgba(255,255,255,.5);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  animation:envChevBounce 2s ease-in-out infinite;
 }
-@keyframes envBtnArrow{
+.env-btn .env-chevron svg{width:10px;height:10px;stroke:rgba(255,255,255,.7);fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+@keyframes envChevBounce{
   0%,100%{transform:translateY(0)}
-  50%{transform:translateY(3px)}
+  50%{transform:translateY(2px)}
 }
 
 /* ── GIFTS ────────────────────────────────────────────── */
@@ -984,8 +980,8 @@ section>*{position:relative;z-index:1}
   <video id="env-video" playsinline webkit-playsinline muted preload="metadata"><source src="sobre.mp4" type="video/mp4"></video>
   <div class="envelope-hint" id="env-hint">
     <button class="env-btn" type="button">
-      <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="14" rx="2"/><path d="M2 8l10 6 10-6"/></svg>
       Toca para abrir
+      <span class="env-chevron"><svg viewBox="0 0 12 12"><path d="M3 4.5l3 3 3-3"/></svg></span>
     </button>
   </div>
 </div>
